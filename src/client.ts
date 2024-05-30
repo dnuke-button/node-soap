@@ -322,7 +322,7 @@ export class Client extends EventEmitter {
       // If it's not HTML and Soap Body is empty
       if (!obj.html && !obj.Body) {
         if (response.status >= 400) {
-          const error: ISoapError = new Error('Error http status codes');
+          const error: ISoapError = new Error('Error http status codes' + response.status);
           error.response = response;
           error.body = body;
           this.emit('soapError', error, eid);
